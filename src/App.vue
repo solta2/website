@@ -1,30 +1,23 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <v8-menu-top />
+  <div class="container-fluid">
+    <router-view/>
+  </div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script>
+export default {
+  methods: {
+    recortarCadena(cadena) {
+        // Verifica si la longitud de la cadena es mayor a 10 caracteres
+        if (cadena.length > 10) {
+            // Obtiene los primeros 5 caracteres y los últimos 5 caracteres
+            const inicio = cadena.slice(0, 5);
+            const fin = cadena.slice(-5);
+            // Devuelve la cadena recortada con "..."
+            return `${inicio}...${fin}`;
+        }
+    },
+  }
 }
-
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+</script>

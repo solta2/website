@@ -1,5 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
+
 import HomeView from '../views/HomeView.vue'
+import ListingHomeView from '../views/ListingHomeView.vue'
+import ListingView from '../views/ListingView.vue'
+
+import TokensCreateView from '../views/tokens/CreateView.vue'
 
 const routes = [
   {
@@ -8,11 +13,24 @@ const routes = [
     component: HomeView
   },
   {
+    path: '/tokens/create',
+    name: 'tokens-create',
+    component: TokensCreateView
+  },
+
+  {
+    path: '/listing-home',
+    name: 'listing-home',
+    component: ListingHomeView
+  },
+  {
+    path: '/listing',
+    name: 'listing',
+    component: ListingView
+  },
+  {
     path: '/about',
     name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: function () {
       return import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
     }
